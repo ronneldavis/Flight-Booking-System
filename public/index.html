@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+    <head>
+        <script src="jquery.js"></script>
+        <script>
+            function sendRequest(){
+        
+                recognition.stop();
+                recognition.start();
+                
+            }
+                   
+    navigator.webkitGetUserMedia({ audio: true }, function(){}, function(){});
+
+    var recognition = new webkitSpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = true;
+    recognition.lang = "en-US";
+
+    var is_open = false;
+
+    function endVoice(){
+        recognition.stop();
+        is_open = false;
+    }
+
+    recognition.onstart = function() {
+        is_open = true;
+    }
+
+    recognition.onresult = function(event) {
+        var final_transcript = "";
+        var interim_transcript = "";
+        for (var i = event.resultIndex; i < event.results.length; ++i) {
+            if (event.results[i].isFinal) {
+                final_transcript += event.results[i][0].transcript;            
+                console.log(final_transcript);
+                
+                $.ajax({
+                    url: 'http://localhost:3000',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        origin: "Cochin",
+                        destination: "Dubai",
+                        departure: "31/9/2017",
+                        arrival: "4/10/2017",
+                        passengers: "4"
+                    })
+                });
+                
+                endVoice();
+            } else {
+                interim_transcript += event.results[i][0].transcript;
+            }
+        }        
+        
+        console.log(interim_transcript);
+    }
+
+    recognition.onerror = function(event) {
+        if(event.error == "no-speech"){
+            endVoice();
+            return;
+        }
+    }
+
+    recognition.onend = function() { 
+        //document.getElementById("status").innerHTML += "Speech recognition ended";
+    }
+
+
+        </script>
+    </head>
+    <body>
+        <button onclick="sendRequest()">Speech recognition</button>
+    </body>
+</html>

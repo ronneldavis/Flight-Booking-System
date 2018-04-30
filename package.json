@@ -1,0 +1,26 @@
+{
+  "name": "flight-booking-system",
+  "author": {
+    "name": "Ronnel Davis",
+    "email": "ronneldavis1996@gmail.com",
+    "url": "http://ronneldavis.com/"
+  },
+  "contributors": [
+    {
+      "name": "Ashiq Muhammed",
+      "email": "mbashiq@gmail.com",
+      "url": "http://ashiqmuhammed.com/"
+    }
+  ],
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "The purpose of the project is to apply natural language processing, pat- tern recognition and machine learning to make it easier to fill forms on the web. We approach the problem using web automation tools to emulate a human and we use Natural Language Processing to gain user intent and pa- rameters required to fill forms. The use of machine learning means the tool to be language agnostic and hence can be applied to help a speakers of re- gional languages fill up forms on the web with ease. We start by working with flight booking websites to reduce complexity and to make sure we have a single data model to work with.",
+  "dependencies": {
+    "express": "^4.16.3",
+    "http": "0.0.0",
+    "limdu": "^0.9.4",
+    "querystring": "^0.2.0",
+    "selenium-webdriver": "^4.0.0-alpha.1",
+    "url": "^0.11.0"
+  }
+}
