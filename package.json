@@ -14,6 +14,7 @@
   ],
   "version": "1.0.0",
   "license": "MIT",
+    "repository": "https://github.com/ronneldavis/Flight-Booking-System.git",
   "description": "The purpose of the project is to apply natural language processing, pat- tern recognition and machine learning to make it easier to fill forms on the web. We approach the problem using web automation tools to emulate a human and we use Natural Language Processing to gain user intent and pa- rameters required to fill forms. The use of machine learning means the tool to be language agnostic and hence can be applied to help a speakers of re- gional languages fill up forms on the web with ease. We start by working with flight booking websites to reduce complexity and to make sure we have a single data model to work with.",
   "dependencies": {
     "express": "^4.16.3",
